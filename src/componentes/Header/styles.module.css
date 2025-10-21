@@ -1,0 +1,20 @@
+
+
+.header {
+    width: 100%;
+    height:18.5rem;
+    background:var(--base-post);
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+
+    img {
+        width: 148px;
+        height: 98px;
+        margin-bottom: 3rem;
+    }
+}
