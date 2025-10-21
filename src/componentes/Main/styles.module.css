@@ -1,119 +1,12 @@
-
-
-
 .main {
-    min-height: 100vh;
-    background:var(--base-background);
+  background: var(--base-background);
 
-    display: flex;
-    
-    justify-content: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 
-    font-family: "Nunito";
-    
-}
+  gap: 4rem;
 
-
-
-.profileContainer {
-    width: 54rem;
-    height: 13.25rem;
-    border-radius: 10px;
-    margin-top: -5rem;
-
-    background: var(--base-profile);
-
-
-    display: flex;
-    gap: 6px;
-
-    
-
-
-    
-
-
-    
-    
-}
-
-.avatar {
-    width: 200px;
-    height: 200px;
-    padding-left:40px;
-}
-
-.profile {
-    display: flex;
-    gap: 6px;
-    padding-right: 1rem;
-    
-}
-
-.info {
-    display: flex;
-    gap: 6px;
-    flex-direction: column;
-    justify-content: center;
-
-    span {
-        font-size: 24px;
-        color: var(--base-title);
-
-    }
-
-    p {
-        color: var(--base-text);
-        font-size: 16px;
-        line-height: 1.6;
-    }
-}
-
-.infoTags {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
-
-
-    div {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-
-
-        p {
-            font-size: 16px;
-            color: var(--base-subtitle);
-        }
-    }
-}
-
-button {
-    color: var(--blue);
-    background: transparent;
-    border: none;
-    height: 19px;
-    width: 67px;
-    cursor: pointer;
-
-    display: flex;
-    
-    justify-content: center;
-    gap: 4px;
-
-    padding-top: 3.5rem;
-    padding-right: 2rem;
-
-
-    font-size: 12px;
-    font-weight: bold;
-    line-height: 1.6;
-    
-    span {
-        display: flex;
-        gap: 4px;
-        align-items: center;
-    }
-
-    
+  font-family: "Nunito";
 }

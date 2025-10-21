@@ -1,15 +1,9 @@
-import styles from "./styles.module.css"
+import styles from "./styles.module.css";
 
 interface LayoutProps {
-    children : React.ReactNode
+  children: React.ReactNode;
 }
 
-export function Layout({children} : LayoutProps) {
-    return (
-        <div className={styles['container-page']}>
-
-        {children}
-            
-        </div>
-    )
+export function Layout({ children }: LayoutProps) {
+  return <div className={styles.containerPage}>{children}</div>;
 }

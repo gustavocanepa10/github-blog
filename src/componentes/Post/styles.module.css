@@ -1,0 +1,27 @@
+.post {
+  background: var(--base-post);
+  border-radius: 10px;
+  padding: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  h2 {
+    color: var(--base-title);
+  }
+
+  span {
+    color: var(--base-span);
+    font-size: 14px;
+  }
+}
+
+p {
+  color: var(--base-span);
+}
