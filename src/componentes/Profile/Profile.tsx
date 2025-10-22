@@ -5,38 +5,51 @@ import Logo2 from "../../assets/Logo2.svg";
 import Logo3 from "../../assets/Logo3.svg";
 
 import styles from "./styles.module.css";
+import { useContext } from "react";
+import { ProfileContext } from "../../context/ProfileContext";
+
+interface User {
+  login: string;
+  name: string;
+  avatar_url: string;
+  bio: string;
+  location: string;
+  followers: number;
+  following: number;
+  public_repos: number;
+  html_url: string;
+}
 
 export function Profile() {
+  const { user } = useContext(ProfileContext);
+
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profile}>
-        <img className={styles.avatar} src={Avatar} alt="" />
+        <img className={styles.avatar} src={user?.avatar_url} alt="" />
       </div>
 
       <div className={styles.info}>
-        <span>Cameron Williamson</span>
+        <span>{user?.name}</span>
 
-        <p>
-          Tristique volutpat pulvinar vel massa, pellentesque egestas. Eu
-          viverra massa quam dignissim aenean malesuada suscipit. Nunc, volutpat
-          pulvinar vel mass.
-        </p>
+        <p>{user?.bio}</p>
 
         <div className={styles.infoTags}>
           <div>
             <img src={GitHubLogo} alt="" />
-            <p>cameronwll</p>
+            <p>{user?.login}</p>
           </div>
           <div>
             <img src={Logo2} alt="" />
-            <p>Rocketseat</p>
+            <p>{user?.location}</p>
           </div>
           <div>
             <img src={Logo3} alt="" />
-            <p>32 seguidores</p>
+            <p>{user?.followers}</p>
           </div>
         </div>
       </div>
+
       <button>
         <span>
           GITHUB

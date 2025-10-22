@@ -7,13 +7,16 @@
   background: var(--base-profile);
 
   display: flex;
-  gap: 6px;
+  gap: 2rem;
 }
 
 .avatar {
   width: 200px;
-  height: 200px;
-  padding-left: 40px;
+  max-height: 210px;
+  padding-left: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  
 }
 
 .profile {

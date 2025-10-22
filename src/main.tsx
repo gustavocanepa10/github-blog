@@ -4,12 +4,16 @@ import './global.css'
 
 import { BrowserRouter } from 'react-router-dom'
 import { AppRouter } from './AppRouter.tsx'
+import { ProfileContextProvider } from './context/ProfileContext.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
-     <AppRouter />
+    <ProfileContextProvider>
+      <AppRouter />
+    </ProfileContextProvider>
+     
      </BrowserRouter>
    
-  </StrictMode>,
+  </StrictMode>
 )
