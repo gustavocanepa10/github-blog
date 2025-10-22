@@ -1,10 +1,12 @@
 .post {
   background: var(--base-post);
   border-radius: 10px;
-  padding: 25px;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 2rem;
+  min-width: 30rem;
+  min-height: 16.25rem;
 }
 
 .header {
@@ -14,6 +16,8 @@
 
   h2 {
     color: var(--base-title);
+    font-size: 16px;
+    
   }
 
   span {

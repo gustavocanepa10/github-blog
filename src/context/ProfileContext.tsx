@@ -26,11 +26,35 @@ interface ProfileContextProviderProps {
 }
 
 
+interface Item {
+  id: number;
+  number: number;
+  title: string;
+  body: string;
+  html_url: string;
+  comments: number;
+  created_at: string;
+  updated_at: string;
+  user: {
+    login: string;
+    avatar_url: string;
+    html_url: string;
+  };
+  labels: {
+    id: number;
+    name: string;
+    color: string;
+  }[];
+}
+
 
 
 interface ProfileContext {
     user : User | null
+    repo : Item[] | null
 }
+
+
 
 
 export const ProfileContext = createContext({} as ProfileContext)
@@ -38,7 +62,7 @@ export const ProfileContext = createContext({} as ProfileContext)
 export function ProfileContextProvider({children} : ProfileContextProviderProps) {
 
     const [user,setUser] = useState(null)
-    const [repo,setRepo] = useState(null)
+    const [repo,setRepo] = useState<Item[] | null>(null)
 
     async function getProfile() {
         const username = "diego3g"
@@ -47,28 +71,34 @@ export function ProfileContextProvider({children} : ProfileContextProviderProps)
         const data = await response.data
 
         setUser(data)
-        console.log(data)
+       
         
-    }   
+    }  
+    
+    
+    async function getRepo() {
+        const username = "diego3g"
+        const repo = "rocketredis"
+        const response = await axios.get(`https://api.github.com/search/issues?q=repo:${username}/${repo}`)
+        const data = response.data.items
+        setRepo(data)
+        console.log(data)
+       
+    }
 
     useEffect(() => {
         getProfile()
         getRepo()
     },[])
 
-    async function getRepo() {
-        const username = "diego3g"
-        const repo = "rocketredis"
-        const number = 1
-        const response = await axios.get(`https://api.github.com/repos/${username}/${repo}/issues/${number}`)
-        setRepo(response.data)
-        console.log(response.data)
-    }
+    
+
+
 
 
 
     return (
-        <ProfileContext.Provider value={{user}}>
+        <ProfileContext.Provider value={{user, repo}}>
             {children}
         </ProfileContext.Provider>
     )
