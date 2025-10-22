@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Post } from "../Post/Post";
 import styles from "./styles.module.css";
 import { ProfileContext } from "../../context/ProfileContext";
@@ -9,6 +9,9 @@ export function ContainerList() {
 
 
   const {repo} = useContext(ProfileContext)
+  const [searchInput, setSearchInput] = useState("")
+
+  const filteredList = repo?.filter((item) => item.title.toUpperCase().includes(searchInput.toUpperCase()))
 
   return (
     <div className={styles.Container}>
@@ -19,10 +22,10 @@ export function ContainerList() {
           <span>6 publicações</span>
         </div>
 
-        <input type="text" placeholder="Buscar conteúdo" />
+        <input type="text" placeholder="Buscar conteúdo" value={searchInput} onChange={(e) => setSearchInput(e.target.value)}  />
 
         <div className={styles.list}>
-          {repo?.map((item) =>  <Post key={item.id} item = {item}  />)}
+          {filteredList?.map((item) =>  <Post key={item.id} item = {item}  />)}
 
           
         </div>

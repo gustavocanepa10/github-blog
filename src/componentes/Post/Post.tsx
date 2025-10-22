@@ -25,20 +25,23 @@ interface Item {
 }
 
 interface PostProps {
-  item : Item 
+  item: Item
 }
 
 
-export function Post({item} : PostProps) {
+export function Post({ item }: PostProps) {
   return (
+
+
+
     <div className={styles.post}>
       <div className={styles.header}>
-        <h2>{item.title}<br/></h2>
+        <h2>{item.title.substring(0, 21)}<br /></h2>
         <span>Há 1 dia</span>
       </div>
 
       <p>
-        {item.body.substring(0,102)}
+        {item.body.substring(0, 102)}...
       </p>
     </div>
   );

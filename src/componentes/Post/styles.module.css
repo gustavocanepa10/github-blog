@@ -4,6 +4,7 @@
   padding: 2rem;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   gap: 2rem;
   min-width: 30rem;
   min-height: 16.25rem;
