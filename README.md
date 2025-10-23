@@ -18,3 +18,20 @@ Axios – Para fazer requisições HTTP à API do GitHub.
 ESLint – Análise de código.
 
 Lucide Icons – Ícones utilizados na interface.
+
+
+Funcionalidades
+
+Exibe perfil do usuário (nome, bio, avatar, links)
+
+Lista de posts (issues do GitHub)
+
+Busca por posts com filtro dinâmico
+
+Exibição de contagem de comentários por post
+
+Páginas individuais para cada post
+
+Interface responsiva e moderna
+
+Navegação entre posts com Next/Prev (ArrowLeft e ArrowRight)
