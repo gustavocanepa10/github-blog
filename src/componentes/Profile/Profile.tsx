@@ -7,6 +7,7 @@ import Logo3 from "../../assets/Logo3.svg";
 import styles from "./styles.module.css";
 import { useContext } from "react";
 import { ProfileContext } from "../../context/ProfileContext";
+import { Link } from "react-router";
 
 interface User {
   login: string;
@@ -26,7 +27,7 @@ export function Profile() {
   return (
     <div className={styles.profileContainer}>
       <div className={styles.profile}>
-        <img className={styles.avatar} src={user?.avatar_url} alt="" />
+        <img src={user?.avatar_url} alt="" />
       </div>
 
       <div className={styles.info}>
@@ -51,10 +52,10 @@ export function Profile() {
       </div>
 
       <button>
-        <span>
+        <a href="https://github.com/gustavocanepa10">
           GITHUB
           <SquareArrowOutUpRightIcon size={16} color="#3294F8" />
-        </span>
+        </a>
       </button>
     </div>
   );

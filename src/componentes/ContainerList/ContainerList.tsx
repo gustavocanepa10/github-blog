@@ -8,10 +8,15 @@ import { ProfileContext } from "../../context/ProfileContext";
 export function ContainerList() {
 
 
-  const {repo} = useContext(ProfileContext)
+  const {repo, total} = useContext(ProfileContext)
   const [searchInput, setSearchInput] = useState("")
 
   const filteredList = repo?.filter((item) => item.title.toUpperCase().includes(searchInput.toUpperCase()))
+
+  
+
+  
+  
 
   return (
     <div className={styles.Container}>
@@ -19,7 +24,7 @@ export function ContainerList() {
         <div className={styles.intro}>
           <h2>Publicações</h2>
 
-          <span>6 publicações</span>
+          <span> {total} publicações </span>
         </div>
 
         <input type="text" placeholder="Buscar conteúdo" value={searchInput} onChange={(e) => setSearchInput(e.target.value)}  />

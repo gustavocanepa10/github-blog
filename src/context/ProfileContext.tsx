@@ -81,7 +81,7 @@ export function ProfileContextProvider({ children }: ProfileContextProviderProps
   async function getRepo() {
     const username = "diego3g"
     const repo = "rocketredis"
-    const response = await axios.get(`https://api.github.com/search/issues?q=repo:${username}/${repo}`)
+    const response = await axios.get(`https://api.github.com/search/issues?q=repo:${username}/${repo}+type:issue+state:open`)
     const data = response.data.items
     const total_Count = response.data.total_count
     setRepo(data)

@@ -1,4 +1,6 @@
+import { differenceInDays } from "date-fns";
 import styles from "./styles.module.css";
+import { Navigate, useNavigate } from "react-router";
 
 
 
@@ -30,18 +32,26 @@ interface PostProps {
 
 
 export function Post({ item }: PostProps) {
+
+  const navigate = useNavigate()
+
+  const createdAt = item?.created_at ? new Date(item.created_at) : new Date()
+  
+      const difference = differenceInDays(new Date(), createdAt)
+
   return (
 
 
 
-    <div className={styles.post}>
+    <div onClick={() => navigate(`/post/${item.number}`)} className={styles.post}>
+      
       <div className={styles.header}>
-        <h2>{item.title.substring(0, 21)}<br /></h2>
-        <span>Há 1 dia</span>
+        <h2>{item.title.substring(0, 30)}<br /></h2>
+        <span>Há {difference > 1 ? difference +" dias" : "dia"}  </span>
       </div>
 
       <p>
-        {item.body.substring(0, 102)}...
+        {item.body.substring(0, 35)}...
       </p>
     </div>
   );
